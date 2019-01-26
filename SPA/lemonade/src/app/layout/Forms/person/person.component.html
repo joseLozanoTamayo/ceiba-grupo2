@@ -1,0 +1,30 @@
+<app-personalTable  [(configuracion)]="datos.config" (dataNew)="crear()"  (dataSelect)="rowSelect($event)" [hidden]="selectMode"></app-personalTable>
+<div [hidden]="!selectMode"  class="content">
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Nombre</label>
+            <input [(ngModel)]="datos.nombre" [ngModelOptions]="{standAlone:true}" type="text" required class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label>Cedula</label>
+            <input [(ngModel)]="datos.cedula" [ngModelOptions]="{standAlone:true}" type="number" required class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label>Celular</label>
+            <input [(ngModel)]="datos.celular" [ngModelOptions]="{standAlone:true}" type="number" required class="form-control">
+        </div>
+        <div class="col-lg-1">
+            <label>sexo</label>
+            <select [(ngModel)]="datos.sexo" [ngModelOptions]="{standAlone:true}" class="form-control">
+                <option>Femenino</option>
+                <option>Masculino</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <label>Pais </label>
+            <select [(ngModel)]="datos.pais" [ngModelOptions]="{standAlone:true}" class="form-control">
+                <option>Colombia</option>
+            </select>
+        </div>
+    </div>
+</div>
