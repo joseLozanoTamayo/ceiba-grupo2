@@ -95,6 +95,12 @@
     float: right;
 }
 
+.timeline li:nth-child(even){
+    .timeline-panel{
+        float: left;
+    }
+}
+
 .timeline > li.timeline-inverted > .timeline-panel:before {
     right: auto;
     left: -15px;

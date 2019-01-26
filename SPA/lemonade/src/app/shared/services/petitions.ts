@@ -64,7 +64,9 @@ export class petitionservice {
 
 		return this.http.get(this.path+"/"+url+"/"+id, opciones);
 	}
-
+	/**
+	 * ejecutarGet
+	 */
 	public ejecutarGet(url: string){
 		return this.get(url).toPromise().then(
 			(res)=>{
@@ -75,7 +77,9 @@ export class petitionservice {
 			}
 		)
 	}
-
+	/**
+	 * ejecutarDelete
+	 */
 	public ejecutarDelete(url:string,id:string){
 		return this.delete(url,id).toPromise().then(
 			(res)=>{
@@ -86,7 +90,9 @@ export class petitionservice {
 			}
 		);
 	}
-
+	/**
+	 * ejecutarGetId
+	 */
 	public ejecutarGetId(url:string,id:string){
 		return this.getId(url,id).toPromise().then(
 			(res)=>{
@@ -96,5 +102,18 @@ export class petitionservice {
 				return err;
 			}
 		);
+	}
+	/**
+	 * ejecutarPost
+	 */
+	public ejecutarPost(url,body) {
+		return this.post(url,body).toPromise().then(
+			res=>{
+				return res;
+			},
+			(err)=>{
+				return err;
+			}
+		)
 	}
 }
