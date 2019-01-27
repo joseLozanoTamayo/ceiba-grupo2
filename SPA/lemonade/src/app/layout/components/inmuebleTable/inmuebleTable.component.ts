@@ -7,11 +7,11 @@ import {  delay } from 'rxjs/operators';
 
 
 @Component({
-	selector: 'app-personalTable',
-	templateUrl: './personalTable.component.html',
-	styleUrls: ['./personalTable.component.scss']
+	selector: 'app-inmuebleTable',
+	templateUrl: './inmuebleTable.component.html',
+	styleUrls: ['./inmuebleTable.component.scss']
 })
-export class personalTableComponent implements OnInit {
+export class InmuebleTableComponent implements OnInit {
 
 	@Input() configuracion: any;
 	@ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,7 +36,6 @@ export class personalTableComponent implements OnInit {
 	loadData() {
 		this.api.ejecutarGet(this.configuracion.path).then(
 			res => {
-				console.log(' TABLE RES : ' + JSON.stringify(res));
 				this.data = [];
 				this.displayedColumns = [];
 				this.displayedColumns.push('n°');

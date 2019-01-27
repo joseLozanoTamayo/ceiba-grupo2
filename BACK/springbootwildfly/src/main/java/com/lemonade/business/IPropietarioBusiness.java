@@ -17,6 +17,6 @@ public interface IPropietarioBusiness {
 	
 	public PropietarioModel consultarPropietario(PropietarioModel propietarioModel);
 	
-	public List<PropietarioModel> listaPropietario(PropietarioModel propietarioModel);
+	public List<PropietarioModel> listaPropietario();
 	
 }

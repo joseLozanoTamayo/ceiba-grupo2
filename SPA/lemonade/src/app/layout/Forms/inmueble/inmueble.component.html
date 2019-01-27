@@ -1,9 +1,9 @@
-<app-personalTable *ngIf="!selectMode" [(configuracion)]="datos.config" (dataNew)="crear()" (dataSelect)="rowSelect($event)" [hidden]="selectMode"></app-personalTable>
+<app-inmuebleTable *ngIf="!selectMode" [(configuracion)]="datos.config" (dataNew)="crear()" (dataSelect)="rowSelect($event)" [hidden]="selectMode"></app-inmuebleTable>
 <div [hidden]="!selectMode" class="content">
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-11">
-            <h1>PROPIETARIO</h1>
+            <h1>INMUEBLE</h1>
         </div>
     </div>
     <div class="row">
