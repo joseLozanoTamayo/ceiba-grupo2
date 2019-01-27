@@ -25,7 +25,7 @@ public class InmuebleBusiness implements IInmuebleBusiness {
 	 * @see com.lemonade.business.IInmuebleBusiness#crearPropietario(com.lemonade.model.InmuebleModel)
 	 */
 	@Override
-	public InmuebleModel crearPropietario(InmuebleModel inmuebleModel) {
+	public InmuebleModel crearInmueble(InmuebleModel inmuebleModel) {
 		return repositoryInmueble.save(inmuebleModel);
 	}
 
@@ -33,7 +33,7 @@ public class InmuebleBusiness implements IInmuebleBusiness {
 	 * @see com.lemonade.business.IInmuebleBusiness#consultarPropietario(com.lemonade.model.InmuebleModel)
 	 */
 	@Override
-	public InmuebleModel consultarPropietario(InmuebleModel inmuebleModel) {
+	public InmuebleModel consultarInmueble(InmuebleModel inmuebleModel) {
 		return repositoryInmueble.findById(inmuebleModel.getIdInmueble()).get();
 	}
 
@@ -41,7 +41,7 @@ public class InmuebleBusiness implements IInmuebleBusiness {
 	 * @see com.lemonade.business.IInmuebleBusiness#listaPropietario()
 	 */
 	@Override
-	public List<InmuebleModel> listaPropietario() {
+	public List<InmuebleModel> listaInmueble() {
 		return repositoryInmueble.findAll();
 	}
 
