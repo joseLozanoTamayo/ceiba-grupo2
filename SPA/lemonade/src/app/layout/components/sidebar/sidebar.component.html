@@ -4,7 +4,7 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
-        <a [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a *ngIf="sesion.user.rol=='administrador'" [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-user"></i>&nbsp;
             <span>{{ 'Person' | translate }}</span>
         </a>

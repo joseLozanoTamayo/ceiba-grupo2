@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 export class sessionService {
     private user={}
 	constructor() {
-        this.user = JSON.parse(localStorage.getItem("user"));
-        
+        this.user = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):{};
 	}
 }
