@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PersonComponent } from './person.component';
+import { InmuebleComponent } from './inmueble.component';
 
 const routes: Routes = [
-    { path: '', component: PersonComponent }
+    { path: '', component: InmuebleComponent }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class CgPaisesRoutingModule {}
+export class CgInmuebleRoutingModule {}

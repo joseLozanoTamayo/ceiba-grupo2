@@ -1,5 +1,7 @@
 package com.lemonade.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,6 @@ import com.lemonade.model.PropietarioModel;
 @RequestMapping(value="/inmueble")
 class InmuebleController {
 
-
 	/**
 	 * 
 	 */
@@ -33,6 +34,16 @@ class InmuebleController {
 	@RequestMapping(value="/crear", method = RequestMethod.POST)
 	public ResponseEntity<InmuebleModel> consultarUsuario(@RequestBody final InmuebleModel propietarioModel) {
 		return new ResponseEntity<>(inmuebleBusiness.crearInmueble(propietarioModel), HttpStatus.ACCEPTED);
+	}
+	
+	/**
+	 * Rest consulta el inmueble
+	 * @param inmuebleModel
+	 * @return
+	 */
+	@RequestMapping(value="/obtenerinmueble", method = RequestMethod.GET)
+	public ResponseEntity<List<InmuebleModel>> obtenerPropietario() {
+		return new ResponseEntity<>(inmuebleBusiness.listaInmueble(), HttpStatus.ACCEPTED);
 	}
 	
 }
