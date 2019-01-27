@@ -13,10 +13,10 @@ import com.lemonade.model.InmuebleModel;
 public interface IInmuebleBusiness {
 
 
-	public InmuebleModel crearPropietario(InmuebleModel inmuebleModel);
+	public InmuebleModel crearInmueble(InmuebleModel inmuebleModel);
 	
-	public InmuebleModel consultarPropietario(InmuebleModel inmuebleModel);
+	public InmuebleModel consultarInmueble(InmuebleModel inmuebleModel);
 	
-	public List<InmuebleModel> listaPropietario();
+	public List<InmuebleModel> listaInmueble();
 	
 }

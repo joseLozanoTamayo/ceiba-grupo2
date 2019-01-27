@@ -5,27 +5,26 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.lemonade.business.impl.PropietarioBusiness;
+import com.lemonade.business.impl.InmuebleBusiness;
+import com.lemonade.model.InmuebleModel;
 import com.lemonade.model.PropietarioModel;
 
 @RestController
 @RestControllerAdvice
-@RequestMapping(value="/propietario")
-@CrossOrigin("*")
-class PropietarioController {
+@RequestMapping(value="/inmueble")
+class InmuebleController {
 
 	/**
 	 * 
 	 */
 	@Autowired
-	private PropietarioBusiness propietarioBusiness;
+	private InmuebleBusiness inmuebleBusiness;
 	
 	/**
 	 * Rest consulta el usuario
@@ -33,18 +32,18 @@ class PropietarioController {
 	 * @return
 	 */
 	@RequestMapping(value="/crear", method = RequestMethod.POST)
-	public ResponseEntity<PropietarioModel> consultarUsuario(@RequestBody PropietarioModel propietarioModel) {
-		return new ResponseEntity<>(propietarioBusiness.crearPropietario(propietarioModel), HttpStatus.ACCEPTED);
+	public ResponseEntity<InmuebleModel> consultarUsuario(@RequestBody final InmuebleModel propietarioModel) {
+		return new ResponseEntity<>(inmuebleBusiness.crearInmueble(propietarioModel), HttpStatus.ACCEPTED);
 	}
 	
 	/**
-	 * Rest consulta el usuario
-	 * @param usuarioModel
+	 * Rest consulta el inmueble
+	 * @param inmuebleModel
 	 * @return
 	 */
-	@RequestMapping(value="/obtenerpropietario", method = RequestMethod.GET)
-	public ResponseEntity<List<PropietarioModel>> obtenerPropietario() {
-		return new ResponseEntity<>(propietarioBusiness.listaPropietario(), HttpStatus.ACCEPTED);
+	@RequestMapping(value="/obtenerinmueble", method = RequestMethod.GET)
+	public ResponseEntity<List<InmuebleModel>> obtenerPropietario() {
+		return new ResponseEntity<>(inmuebleBusiness.listaInmueble(), HttpStatus.ACCEPTED);
 	}
 	
 }

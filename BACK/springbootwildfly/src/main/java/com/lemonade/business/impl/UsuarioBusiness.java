@@ -37,9 +37,12 @@ public class UsuarioBusiness implements IUsuarioBusiness{
 		
 		if ( response.isPresent() ) {
 			
+			usuarioModel.setNombre("Jose");
+			usuarioModel.setApellido("Lozano");
+			usuarioModel.setRol("administrador");
 		}
 		
-		return response.get();
+		return usuarioModel;
 	}
 
 }
