@@ -1,40 +1,51 @@
 package com.lemonade.model;
+
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the propietario database table.
+ * 
+ */
 @Entity
 @Table(name = "propietario")
-public class PropietarioModel implements Serializable{
-	
+@NamedQuery(name="Propietario.findAll", query="SELECT p FROM PropietarioModel p")
+public class PropietarioModel implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	private String cedula ;
-	
-	@Column
-	private String  nombre;
-	
-	@Column
-	private String  sexo;
-	
-	@Column
+	private String cedula;
+
 	private String indicativo;
-	
-	@Column
-	private String telefono ;
+
+	private String nombre;
+
+	private String sexo;
+
+	private String telefono;
+
+	public PropietarioModel() {
+	}
 
 	public String getCedula() {
-		return cedula;
+		return this.cedula;
 	}
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
 
+	public String getIndicativo() {
+		return this.indicativo;
+	}
+
+	public void setIndicativo(String indicativo) {
+		this.indicativo = indicativo;
+	}
+
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -42,23 +53,15 @@ public class PropietarioModel implements Serializable{
 	}
 
 	public String getSexo() {
-		return sexo;
+		return this.sexo;
 	}
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
-	public String getIndicativo() {
-		return indicativo;
-	}
-
-	public void setIndicativo(String indicativo) {
-		this.indicativo = indicativo;
-	}
-
 	public String getTelefono() {
-		return telefono;
+		return this.telefono;
 	}
 
 	public void setTelefono(String telefono) {
