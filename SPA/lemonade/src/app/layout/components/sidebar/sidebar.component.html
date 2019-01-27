@@ -4,9 +4,17 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' | translate }}</span>
         </a>
-        <a [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a *ngIf="sesion.user.rol=='administrador'" [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-user"></i>&nbsp;
             <span>{{ 'Person' | translate }}</span>
+        </a>
+        <a *ngIf="sesion.user.rol!='administrador'" [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-user"></i>&nbsp;
+            <span>{{ 'inmueble' | translate }}</span>
+        </a>
+        <a *ngIf="sesion.user.rol!='administrador'" [routerLink]="['/personas']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-user"></i>&nbsp;
+            <span>{{ 'Seguro' | translate }}</span>
         </a>
         <div class="header-fields">
             <a (click)="rltAndLtr()" class="list-group-item">

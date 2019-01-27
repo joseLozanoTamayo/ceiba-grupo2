@@ -8,7 +8,8 @@ import { catchError} from 'rxjs/operators';
 // httpOptions for set header options
 const httpOptions = {
 	headers: new HttpHeaders({
-	  'Accept': 'application/json'
+	  'Accept': 'application/json',
+	  'Content-Type': 'application/json;'
 	}),
   };
 
@@ -50,7 +51,7 @@ export class petitionservice {
 	public post(url: string, body: any): Observable<any> {
 		const  header = new HttpHeaders(
 			{
-				'Content-Type': 'application/json;'
+				'Content-Type': 'application/json'
 			}
 		);
 		const opciones = {
@@ -78,7 +79,7 @@ export class petitionservice {
 	 * ejecutarGet
 	 */
 	public ejecutarGet(url: string) {
-		return this.get(url).toPromise().then(
+		return this.get2(url).toPromise().then(
 			(res) => {
 				return res;
 			},
@@ -117,6 +118,12 @@ export class petitionservice {
 	 * ejecutarPost
 	 */
 	public ejecutarPost(url, body) {
+
+		console.log(' BODY : ' + JSON.stringify(body));
+		if ( body instanceof Object) {
+			body = JSON.stringify(body);
+		}
+
 		return this.post2(url, body).toPromise().then(
 			res => {
 				console.log(' response : ' + JSON.stringify(res));
@@ -128,13 +135,32 @@ export class petitionservice {
 		);
 	}
 
+	/**
+	 * Metodo pos que registra propietarios
+	 * @param endpoint
+	 * @param element
+	 */
 	post2(endpoint, element) {
+
 		return this.http.post( this.path + '/' + endpoint, element, httpOptions).pipe(
 		  catchError(this.handleError)
 		);
 	  }
 
+	  /**
+	   *
+	   * @param endpoint
+	   */
+	  get2(endpoint) {
+		return this.http.get(this.path + '/' + endpoint, httpOptions).pipe(
+		  catchError(this.handleError)
+		);
+	  }
+
 	private handleError(error: HttpErrorResponse) {
+
+		console.error(' ERROR : ' + error);
+
 		if (error.error instanceof ErrorEvent) {
 		  // A client-side or network error occurred. Handle it accordingly.
 		  console.error('An error occurred:', error.error.message);

@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
             this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        localStorage.clear();
+    }
 
     onLoggedin() {
         if (this.cedula && this.pass) {
