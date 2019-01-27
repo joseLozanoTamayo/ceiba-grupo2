@@ -30,6 +30,7 @@ export class personalTableComponent implements OnInit {
 	ngOnInit() {
 		this.loadData();
 	}
+	
 	loadData() {
 		this.api.ejecutarGet(this.configuracion.path).then(
 			res => {
@@ -42,7 +43,7 @@ export class personalTableComponent implements OnInit {
 				if(res.data){
 					for (let dato in res.data) {
 						let obj = {}
-						obj["n°"]=Number(dato)+1;
+						obj["n°"] = Number(dato) + 1;
 						for (let item of this.configuracion.data) {
 							obj[item.nombre] = res.data[dato][item.dato];
 						}

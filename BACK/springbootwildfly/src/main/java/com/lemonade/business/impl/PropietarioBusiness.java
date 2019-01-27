@@ -31,7 +31,7 @@ public class PropietarioBusiness implements IPropietarioBusiness{
 	}
 
 	@Override
-	public List<PropietarioModel> listaPropietario(PropietarioModel propietarioModel) {
+	public List<PropietarioModel> listaPropietario() {
 		return repositoryPropietario.findAll();
 	}
 

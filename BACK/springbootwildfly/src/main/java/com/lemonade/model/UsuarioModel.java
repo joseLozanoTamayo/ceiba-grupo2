@@ -25,6 +25,9 @@ public class UsuarioModel implements Serializable {
 	@Transient
 	private String apellido;
 	
+	@Transient
+	private String rol;
+	
 
 	public String getClave() {
 		return clave;
@@ -59,6 +62,14 @@ public class UsuarioModel implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 }

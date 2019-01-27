@@ -5,9 +5,9 @@ export interface Persona {
     id: string;
     nombre: string;
     cedula: string;
-    celular:string;
-    sexo:string;
-    pais:string;
+    celular: string;
+    sexo: string;
+    pais: string;
     config: object;
 }
 @Component({
@@ -16,29 +16,31 @@ export interface Persona {
     styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
+
     public datos: Persona;
-    public selectMode=false;
+    public selectMode = false;
+
     constructor(public api: petitionservice) {
         this.datos = {
             id: '',
             nombre: '',
-            cedula: "",
-            sexo:"masculino",
-            pais:"colombia",
-            celular:null,
+            cedula: '',
+            sexo: 'masculino',
+            pais: 'colombia',
+            celular: null,
             config: {
-                titulo: "USUARIOS", path: "pais", data: [
+                titulo: 'USUARIOS', path: 'pais', data: [
                     {
-                        nombre: "codigo",
-                        dato: "id"
+                        nombre: 'codigo',
+                        dato: 'id'
                     },
                     {
-                        nombre: "nombre",
-                        dato: "nombre"
+                        nombre: 'nombre',
+                        dato: 'nombre'
                     },
                     {
-                        nombre: "eliminar",
-                        dato: "id"
+                        nombre: 'eliminar',
+                        dato: 'id'
                     }
                 ]
             }
@@ -48,14 +50,15 @@ export class PersonComponent implements OnInit {
     }
 
     rowSelect(item) {
-        this.api.ejecutarGetId(this.datos.config["path"], item["codigo"]).then(
+        this.api.ejecutarGetId(this.datos.config['path'], item['codigo']).then(
             res => {
-                console.log("res ", res);
+                console.log('res ', res);
             }
         );
 
     }
-    crear(){
-        this.selectMode=true;
+
+    crear() {
+        this.selectMode = true;
     }
 }
