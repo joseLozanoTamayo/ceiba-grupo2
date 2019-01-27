@@ -11,6 +11,9 @@ import {petitionservice} from '../shared/services/petitions'
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
+    public cedula=""
+    public pass=""
+
     constructor(
         private translate: TranslateService,
         public router: Router,
@@ -25,11 +28,17 @@ export class LoginComponent implements OnInit {
     ngOnInit() {}
 
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
-        this.api.ejecutarPost("",{}).then(
-            res=>{
-                localStorage.setItem('user', JSON.stringify(res));
-            }
-        );
+        if(this.cedula && this.pass){
+            this.api.ejecutarPost("/usuario/login",{cedula:this.cedula,clave:this.pass}).then(
+                res=>{
+                    if(res["nombre"]){
+                        res["id"]=this.cedula;
+                        localStorage.setItem('user', JSON.stringify(res));
+                        localStorage.setItem('isLoggedin', 'true');
+                        this.router.navigateByUrl("dashboard")
+                    }
+                }
+                );
+        }
     }
 }

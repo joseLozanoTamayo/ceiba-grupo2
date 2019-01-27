@@ -9,7 +9,7 @@ export class petitionservice {
 	private token = '1'
 
 	constructor(private http: HttpClient) {
-		this.path = 'http://localhost:8019'
+		this.path = 'http://localhost:8080/springbootwildfly'
 	}
 
 	public get(url: string): Observable<any> {
